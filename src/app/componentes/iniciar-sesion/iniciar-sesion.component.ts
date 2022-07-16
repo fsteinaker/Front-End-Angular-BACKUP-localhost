@@ -21,11 +21,15 @@ export class IniciarSesionComponent {
     console.log(this.usuario);
     const { email, password } = this.usuario;
     this.authService.login(email, password).then((res) => {
-      if (res) {
-        console.log('res -> ', res);
-        this.router.navigate(['/portfolio']);
+      if (email !== '' && password !== '') {
+        if (res) {
+          console.log('res -> ', res);
+          this.router.navigate(['/portfolio']);
+        } else {
+          this.router.navigate(['/error']);
+        }
       } else {
-        this.router.navigate(['/error']);
+        alert('Complete los campos para ingresar');
       }
     });
   }

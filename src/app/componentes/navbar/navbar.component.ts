@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   salirApp() {
     swal({
       title: '¿Queres salir de la app?',
-      text: 'Confirma si deseas salir del Portfolio',
+      text: 'Confirmá si deseas salir del Portfolio',
       type: 'question',
       showCancelButton: true,
       confirmButtonColor: '#c70e0e',

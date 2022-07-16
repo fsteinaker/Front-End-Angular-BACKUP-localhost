@@ -23,16 +23,18 @@
         id="login"
         class="fadeIn second"
         name="login"
-        placeholder="Ingresa tu correo"
+        placeholder="Ingresa tu correo (mínimo 8 caracteres)"
         [(ngModel)]="usuario.email"
+        minlength="8"
       />
       <input
         type="password"
         id="password"
         class="fadeIn third"
         name="login"
-        placeholder="Ingresa tu nueva contraseña"
+        placeholder="Ingresa tu contraseña (mínimo 8 caracteres)"
         [(ngModel)]="usuario.password"
+        minlength="8"
       />
       <input
         type="submit"

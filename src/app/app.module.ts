@@ -30,6 +30,7 @@ import { RegistroExitosoComponent } from './componentes/iniciar-sesion/registro-
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { NuevaExpComponent } from './componentes/experiencia/nueva-exp/nueva-exp.component';
 import { NuevaFormComponent } from './componentes/formacion/nueva-form/nueva-form.component';
+import { ResetComponent } from './componentes/registrarse/reset/reset.component';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -65,6 +66,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     EditarHabComponent,
     NuevoProyectoComponent,
     EditarProyectoComponent,
+    ResetComponent,
   ],
   imports: [
     BrowserModule,

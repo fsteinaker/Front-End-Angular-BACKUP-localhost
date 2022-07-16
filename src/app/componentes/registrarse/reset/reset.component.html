@@ -6,13 +6,14 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <h2 id="bienvenido" data-text="¡Bienvenid@!">¡Bienvenid@!</h2>
+      <h2 id="registrate" data-text="Recuperar cuenta">Recuperar cuenta</h2>
     </div>
 
     <!-- Login Form -->
@@ -22,47 +23,26 @@
         id="login"
         class="fadeIn second"
         name="login"
-        placeholder="Ingresa tu correo"
-        [(ngModel)]="usuario.email"
-        minlength="8"
-      />
-      <input
-        type="password"
-        id="password"
-        class="fadeIn third"
-        name="login"
-        placeholder="Ingresa tu contraseña"
-        [(ngModel)]="usuario.password"
+        placeholder="Ingresa tu correo (mínimo 8 caracteres)"
+        #passwordResetEmail
         minlength="8"
       />
       <input
         type="submit"
         style="margin-top: 25px"
         class="fadeIn fourth"
-        value="Iniciar sesión"
-        (click)="Ingresar()"
-      />
-      <input
-        type="submit"
-        style="width: 57%; margin-top: -10px"
-        class="fadeIn fourth"
-        value="Ingresar con Google"
-        (click)="IngresarConGoogle()"
+        value="RECUPERAR"
+        (click)="authService.ForgotPassword(passwordResetEmail.value)"
       />
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
       <div class="cuenta-registro">
-        <p>¿No tenes una cuenta?</p>
-        <a routerLink="/registrarse">Hacé clic aquí.</a>
+        <p>¿Ya estás registrado?</p>
+        <a routerLink="/iniciar-sesion">Hacé click aquí.</a>
       </div>
-        <div class="cuenta-registro" style="clear: both;">
-        <p>¿Olvidaste tu cuenta?</p>
-          <a routerLink="/reset">Hacé clic aquí.</a>
-        </div>
-
-        <a
+      <a
         class="underlineHover"
         href="https://www.argentina.gob.ar/produccion/argentina-programa/segunda-etapa"
         target="_blank"

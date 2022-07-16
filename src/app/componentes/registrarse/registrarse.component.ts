@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,8 +18,12 @@ export class RegistrarseComponent {
   Registrar() {
     const { email, password } = this.usuario;
     this.authService.register(email, password).then((res) => {
-      console.log('Se registro: ', res);
-      this.router.navigateByUrl('/registro-exitoso');
+      if (email !== '' && password !== '') {
+        console.log('Se registro: ', res);
+        this.router.navigateByUrl('/registro-exitoso');
+      } else {
+        alert('Complete los campos para registrarse');
+      }
     });
   }
 }

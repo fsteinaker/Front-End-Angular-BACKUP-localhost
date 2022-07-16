@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private afauth: AngularFireAuth) {}
+  constructor(private afauth: AngularFireAuth, private router: Router) {}
 
   async login(email: string, password: string) {
     try {
@@ -35,6 +36,19 @@ export class AuthService {
       console.log('error en login con Google: ', err);
       return null;
     }
+  }
+
+  // RESETEAR PASSWORD OLVIDADO
+  ForgotPassword(passwordResetEmail: string) {
+    return this.afauth
+      .sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        window.alert('Se ha mandado un mail a tu cuenta de correo. Verfifica tu casilla SPAM o correo no deseado');
+        this.router.navigateByUrl('/iniciar-sesion');
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
   }
 
   getUserLogged() {

@@ -26,6 +26,16 @@ h2 {
   color: #cccccc;
 }
 
+input:invalid:focus#login, input:invalid:focus#password {
+  background-image: linear-gradient(pink, rgb(255, 94, 94));
+  color: rgb(138, 5, 5);
+}
+
+input:valid:focus#login, input:valid:focus#password  {
+  background-image: linear-gradient(rgb(199, 248, 199), rgb(88, 146, 88));
+  color: rgb(15, 72, 15);
+}
+
 #bienvenido {
   margin: 40px;
   color: #3dbeff;

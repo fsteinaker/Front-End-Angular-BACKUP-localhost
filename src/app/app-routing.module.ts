@@ -16,6 +16,7 @@ import { EditarHabComponent } from './componentes/habilidades/editar-hab/editar-
 import { NuevoProyectoComponent } from './componentes/proyectos/nuevo-proyecto/nuevo-proyecto.component';
 import { EditarProyectoComponent } from './componentes/proyectos/editar-proyecto/editar-proyecto.component';
 import { AccesoNegadoComponent } from './componentes/iniciar-sesion/acceso-negado/acceso-negado.component';
+import { ResetComponent } from './componentes/registrarse/reset/reset.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'error', component: ErrorComponent },
   { path: 'acceso-negado', component: AccesoNegadoComponent },
   { path: 'registro-exitoso', component: RegistroExitosoComponent },
+  { path: 'reset', component: ResetComponent },
   {
     path: 'portfolio',
     component: PortfolioComponent,
