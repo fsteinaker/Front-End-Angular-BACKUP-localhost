@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+
+<section id="cabecera">
+  <div id="logo_argentina_programa">
+    <img class="isotipo" src=".\assets\img\logo_argentina_programa.jpg" />
+    <a
+      href="https://www.instagram.com/argentinaprograma/?hl=es"
+      title="Visitá nuestro perfil en Instagram"
+      target="_blank"
+    >
+      <img id="arg-programa-gif" src=".\assets\gif\arg_programa.gif" />
+    </a>
+  </div>
+
+  <div></div>
+
+  <div class="social">
+    <ul>
+      <li style="margin-left: 70px; margin-top: 7.5px">
+        <a href="{{ persona.linkFacebook }}" target="_blank"
+          ><i class="fa fa-lg fa-facebook"></i
+        ></a>
+      </li>
+      <li>
+        <a href="{{ persona.linkGithub }}" target="_blank"
+          ><i class="fa fa-lg fa-github"></i
+        ></a>
+      </li>
+      <li>
+        <a href="{{ persona.linkLinkedin }}" target="_blank"
+          ><i class="fa fa-lg fa-linkedin"></i
+        ></a>
+      </li>
+      <li>
+        <a href="{{ persona.linkInstagram }}" target="_blank"
+          ><i class="fa fa-lg fa-instagram"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="datos_cv">
+  <img id="img_cabecera" [src]="persona.imagenFondo" />
+  <div id="fondo_cabecera">
+    <img id="foto_cv" [src]="persona.imagen" />
+    <p id="nombre_persona">{{ persona.nombre }} {{ persona.apellido }}</p>
+    <p class="datos_cv_info">
+      Fecha de nacimiento: {{ persona.fecha_nacimiento }}, Localidad:
+      {{ localidad.ciudad }}, ({{ localidad.provincia }})<br />Correo:
+      {{ persona.correo }} , Teléfono: {{ persona.telefono }}<br />{{
+        persona.edad
+      }}
+      años, <b>{{ persona.profesion }}</b>
+    </p>
+    <img
+      src=".\assets\icon\edit_icon.png"
+      class="edit-icon1"
+      style="margin-top: 10px; margin-right: 45px"
+      (click)="editarEncabezado(persona.id)"
+      role="button"
+      title="Editar datos personales"
+    />
+  </div>
+</section>

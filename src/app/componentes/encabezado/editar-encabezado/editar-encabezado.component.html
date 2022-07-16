@@ -1,0 +1,561 @@
+<app-navbar></app-navbar>
+
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        fill="currentColor"
+        class="bi bi-person-square"
+        viewBox="0 0 16 16"
+      >
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path
+          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"
+        />
+      </svg>
+      Editar los datos de {{ persona.nombre }} {{ persona.apellido }}
+    </h3>
+    <br />
+
+    <form (ngSubmit)="onSubmit()" #personaForm="ngForm" style="clear: both">
+      <div class="form-group">
+        <label>Nombre: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          [(ngModel)]="persona.nombre"
+          name="nombre"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese el nombre de la persona"
+          #nombre="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+        >
+          <div *ngIf="nombre.errors.required">
+            Escriba el nombre de la persona
+          </div>
+          <div *ngIf="nombre.errors.minlength">
+            El nombre de la persona tiene que contener como minimo 4 caracteres
+          </div>
+          <div *ngIf="nombre.errors.maxlength">
+            El nombre de la persona tiene que tener como maximo 50 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Apellido: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellido"
+          [(ngModel)]="persona.apellido"
+          name="apellido"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese la fecha de las siguientes maneras: dd/mm/aaaa, Enero 2022"
+          #apellido="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
+        >
+          <div *ngIf="apellido.errors.required">
+            Escriba el apellido de la persona
+          </div>
+          <div *ngIf="apellido.errors.minlength">
+            El apellido de la persona tiene que contener como minimo 4
+            caracteres
+          </div>
+          <div *ngIf="apellido.errors.maxlength">
+            El apellido de la persona tiene que tener como maximo 20 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Profesión: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellido"
+          [(ngModel)]="persona.profesion"
+          name="profesion"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese la profesión de la persona"
+          #profesion="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="profesion.invalid && (profesion.dirty || profesion.touched)"
+        >
+          <div *ngIf="profesion.errors.required">
+            Escriba la profesión de la persona
+          </div>
+          <div *ngIf="profesion.errors.minlength">
+            La profesión de la persona tiene que contener como minimo 4
+            caracteres
+          </div>
+          <div *ngIf="profesion.errors.maxlength">
+            La profesión de la persona tiene que tener como maximo 50 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Edad: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="fecha_inicio"
+          [(ngModel)]="persona.edad"
+          name="fecha_inicio"
+          required
+          minlength="1"
+          maxlength="2"
+          placeholder="Ingrese la edad"
+          #edad="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="edad.invalid && (edad.dirty || edad.touched)"
+        >
+          <div *ngIf="edad.errors.required">Ingrese la edad de la persona</div>
+          <div *ngIf="edad.errors.minlength">Ingrese la edad de la persona</div>
+          <div *ngIf="edad.errors.maxlength">Ingrese la edad de la persona</div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Fecha de nacimiento: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="fecha_nacimiento"
+          [(ngModel)]="persona.fecha_nacimiento"
+          name="fecha_nacimiento"
+          required
+          minlength="8"
+          maxlength="20"
+          placeholder="Ingrese la fecha de las siguientes maneras: dd/mm/aaaa, Enero 2022"
+          #fecha_nacimiento="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            fecha_nacimiento.invalid &&
+            (fecha_nacimiento.dirty || fecha_nacimiento.touched)
+          "
+        >
+          <div *ngIf="fecha_nacimiento.errors.required">
+            Escriba la fecha de nacimiento
+          </div>
+          <div *ngIf="fecha_nacimiento.errors.minlength">
+            La fecha de nacimiento tiene que contener como minimo 8 caracteres
+          </div>
+          <div *ngIf="fecha_nacimiento.errors.maxlength">
+            La fecha de nacimiento tiene que tener como maximo 20 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Teléfono: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="fecha_nacimiento"
+          [(ngModel)]="persona.telefono"
+          name="telefono"
+          required
+          minlength="8"
+          placeholder="Ingrese el número de teléfono"
+          #telefono="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)"
+        >
+          <div *ngIf="telefono.errors.required">
+            Escriba el número de teléfono
+          </div>
+          <div *ngIf="telefono.errors.minlength">
+            Escriba el número de teléfono
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Correo: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="correo"
+          [(ngModel)]="persona.correo"
+          name="correo"
+          required
+          minlength="8"
+          maxlength="50"
+          placeholder="Ingrese la direccion de email de la persona"
+          #correo="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+        >
+          <div *ngIf="correo.errors.required">
+            Escriba el apellido de la persona
+          </div>
+          <div *ngIf="correo.errors.minlength">
+            El email de la persona tiene que contener como minimo 4 caracteres
+          </div>
+          <div *ngIf="correo.errors.maxlength">
+            El email de la persona tiene que tener como maximo 50 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Domicilio: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="domicilio"
+          [(ngModel)]="persona.domicilio"
+          name="domicilio"
+          required
+          minlength="6"
+          maxlength="50"
+          placeholder="Ingrese el domicilio donde reside la persona"
+          #domicilio="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)"
+        >
+          <div *ngIf="domicilio.errors.required">
+            Escriba el domicilio donde reside la persona
+          </div>
+          <div *ngIf="domicilio.errors.minlength">
+            El domicilio donde reside la persona tiene que contener como minimo
+            6 caracteres
+          </div>
+          <div *ngIf="domicilio.errors.maxlength">
+            El domicilio donde reside la persona tiene que tener como maximo 50
+            caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Ciudad: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="ciudad"
+          [(ngModel)]="persona.ciudad"
+          name="ciudad"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese la ciudad donde reside la persona"
+          #ciudad="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+        >
+          <div *ngIf="correo.errors.required">
+            Escriba la ciudad donde reside la persona
+          </div>
+          <div *ngIf="correo.errors.minlength">
+            La ciudad donde reside la persona tiene que contener como minimo 4
+            caracteres
+          </div>
+          <div *ngIf="correo.errors.maxlength">
+            La ciudad donde reside la persona tiene que tener como maximo 50
+            caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Provincia: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="provincia"
+          [(ngModel)]="persona.provincia"
+          name="provincia"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese la provincia donde reside la persona"
+          #provincia="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+        >
+          <div *ngIf="correo.errors.required">
+            Escriba la provincia donde reside la persona
+          </div>
+          <div *ngIf="correo.errors.minlength">
+            La provincia donde reside la persona tiene que contener como minimo
+            4 caracteres
+          </div>
+          <div *ngIf="correo.errors.maxlength">
+            La provincia donde reside la persona tiene que tener como maximo 50
+            caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Código postal: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="codigo_postal"
+          [(ngModel)]="persona.codigo_postal"
+          name="codigo_postal"
+          required
+          minlength="4"
+          maxlength="10"
+          placeholder="Ingrese el codigo postal de la localidad donde reside la persona"
+          #codigo_postal="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            codigo_postal.invalid &&
+            (codigo_postal.dirty || codigo_postal.touched)
+          "
+        >
+          <div *ngIf="codigo_postal.errors.required">
+            Escriba el código postal de la localidad donde reside la persona
+          </div>
+          <div *ngIf="domicilio.errors.minlength">
+            El código postal de la localidad donde reside la persona tiene que
+            contener como minimo 4 caracteres
+          </div>
+          <div *ngIf="domicilio.errors.maxlength">
+            El código postal de la localidad donde reside la persona tiene que
+            contener como máximo 10 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>País: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="pais"
+          [(ngModel)]="persona.pais"
+          name="pais"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese el país donde reside la persona"
+          #pais="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="pais.invalid && (pais.dirty || pais.touched)"
+        >
+          <div *ngIf="pais.errors.required">
+            Escriba el país donde reside la persona
+          </div>
+          <div *ngIf="pais.errors.minlength">
+            El país donde reside la persona tiene que contener como minimo 4
+            caracteres
+          </div>
+          <div *ngIf="pais.errors.maxlength">
+            El país donde reside la persona tiene que tener como maximo 50
+            caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Facebook: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="linkFacebook"
+          [(ngModel)]="persona.linkFacebook"
+          name="linkFacebook"
+          required
+          minlength="20"
+          placeholder="Ingrese la URL (dirección web del perfil de facebook)"
+          #linkFacebook="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            linkFacebook.invalid && (linkFacebook.dirty || linkFacebook.touched)
+          "
+        >
+          <div *ngIf="linkFacebook.errors.required">
+            Ingrese la URL del perfil de Facebook
+          </div>
+          <div *ngIf="linkFacebook.errors.minlength">
+            Ingrese la URL del perfil de Facebook
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Instagram: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="linkFacebook"
+          [(ngModel)]="persona.linkInstagram"
+          name="linkInstagram"
+          required
+          minlength="20"
+          placeholder="Ingrese la URL (dirección web del perfil de instagram)"
+          #linkInstagram="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            linkInstagram.invalid &&
+            (linkInstagram.dirty || linkInstagram.touched)
+          "
+        >
+          <div *ngIf="linkInstagram.errors.required">
+            Ingrese la URL del perfil de Instagram
+          </div>
+          <div *ngIf="linkInstagram.errors.minlength">
+            Ingrese la URL del perfil de Instagram
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Linkedin: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="linkLinkedin"
+          [(ngModel)]="persona.linkLinkedin"
+          name="linkLinkedin"
+          required
+          minlength="20"
+          placeholder="Ingrese la URL (dirección web del perfil de linkedin)"
+          #linkLinkedin="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            linkLinkedin.invalid && (linkLinkedin.dirty || linkLinkedin.touched)
+          "
+        >
+          <div *ngIf="linkLinkedin.errors.required">
+            Ingrese la URL del perfil de Linkedin
+          </div>
+          <div *ngIf="linkLinkedin.errors.minlength">
+            Ingrese la URL del perfil de Linkedin
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>GitHub: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="linkGithub"
+          [(ngModel)]="persona.linkGithub"
+          name="linkGithub"
+          required
+          minlength="20"
+          placeholder="Ingrese la URL (dirección web del perfil de github)"
+          #linkGithub="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="linkGithub.invalid && (linkGithub.dirty || linkGithub.touched)"
+        >
+          <div *ngIf="linkGithub.errors.required">
+            Ingrese la URL del perfil de GitHub
+          </div>
+          <div *ngIf="linkGithub.errors.minlength">
+            Ingrese la URL del perfil de GitHub
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Foto perfil: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="imagen"
+          [(ngModel)]="persona.imagen"
+          name="imagen"
+          #imagen="ngModel"
+          placeholder="Ingrese direccion URL de la imagen (Sitio web donde se encuentra almacenado) NO ES OBLIGATORIO"
+        />
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Foto de fondo: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="imagenFondo"
+          [(ngModel)]="persona.imagenFondo"
+          name="imagenFondo"
+          #imagenFondo="ngModel"
+          placeholder="Ingrese direccion URL de la imagen de fondo (Sitio web donde se encuentra almacenado) NO ES OBLIGATORIO"
+        />
+      </div>
+      <br />
+
+      <div style="float: right; display: block">
+        <button class="btn btn-success" [disabled]="!personaForm.form.valid">
+          Guardar cambios
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="irHome()"
+          style="margin-left: 10px"
+        >
+          Descartar y salir
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

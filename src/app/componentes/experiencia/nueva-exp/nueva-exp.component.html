@@ -1,0 +1,217 @@
+<app-navbar></app-navbar>
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        fill="currentColor"
+        class="bi bi-briefcase-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"
+        />
+        <path
+          d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
+        />
+      </svg>
+      Agregar nueva experiencia laboral
+    </h2>
+    <br />
+
+    <form (ngSubmit)="onSubmit()" #empresaForm="ngForm" style="clear: both">
+      <div class="form-group">
+        <label>Empresa: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="empresa"
+          [(ngModel)]="explaboral.empresa"
+          name="empresa"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese el nombre de la compañia"
+          #empresa="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)"
+        >
+          <div *ngIf="empresa.errors.required">
+            Escriba el nombre de la empresa
+          </div>
+          <div *ngIf="empresa.errors.minlength">
+            El nombre de la empresa tiene que contener como minimo 4 caracteres
+          </div>
+          <div *ngIf="empresa.errors.maxlength">
+            El nombre de la empresa tiene que tener como maximo 50 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Fecha ingreso: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="fecha_inicio"
+          [(ngModel)]="explaboral.fecha_inicio"
+          name="fecha_inicio"
+          required
+          minlength="8"
+          maxlength="20"
+          placeholder="Ingrese la fecha de las siguientes maneras: dd/mm/aaaa, Enero 2022"
+          #fecha_inicio="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            fecha_inicio.invalid && (fecha_inicio.dirty || fecha_inicio.touched)
+          "
+        >
+          <div *ngIf="fecha_inicio.errors.required">
+            Escriba la fecha de ingreso
+          </div>
+          <div *ngIf="fecha_inicio.errors.minlength">
+            La fecha de ingreso tiene que contener como minimo 8 caracteres
+          </div>
+          <div *ngIf="fecha_inicio.errors.maxlength">
+            La fecha de ingreso tiene que tener como maximo 20 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Fecha egreso: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="fecha_final"
+          [(ngModel)]="explaboral.fecha_final"
+          name="fecha_final"
+          required
+          minlength="8"
+          maxlength="20"
+          placeholder="Ingrese la fecha de las siguientes maneras: dd/mm/aaaa, Enero 2022 o en su defecto: Actualidad"
+          #fecha_final="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            fecha_final.invalid && (fecha_final.dirty || fecha_final.touched)
+          "
+        >
+          <div *ngIf="fecha_final.errors.required">
+            Escriba la fecha de egreso o en su defecto: Actualidad
+          </div>
+          <div *ngIf="fecha_final.errors.minlength">
+            La fecha de ingreso tiene que contener como minimo 8 caracteres
+          </div>
+          <div *ngIf="fecha_final.errors.maxlength">
+            La fecha de ingreso tiene que tener como maximo 20 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Cargo: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="empleo_cargo"
+          [(ngModel)]="explaboral.empleo_cargo"
+          name="empleo_cargo"
+          required
+          minlength="4"
+          maxlength="50"
+          placeholder="Ingrese el cargo que ejercio dentro de la compañia"
+          #empleo_cargo="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            empleo_cargo.invalid && (empleo_cargo.dirty || empleo_cargo.touched)
+          "
+        >
+          <div *ngIf="empleo_cargo.errors.required">
+            Escriba el cargo que ejercio dentro de la empresa
+          </div>
+          <div *ngIf="empleo_cargo.errors.minlength">
+            El nombre del cargo tiene que contener como minimo 4 caracteres
+          </div>
+          <div *ngIf="empleo_cargo.errors.maxlength">
+            El nombre del cargo tiene que tener como maximo 50 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Descripción: </label>
+        <textarea
+          cols="30"
+          rows="10"
+          class="form-control"
+          id="detalle"
+          [(ngModel)]="explaboral.detalle"
+          name="detalle"
+          required
+          minlength="10"
+          maxlength="512"
+          placeholder="Ingrese una breve descripción del rol que desempeño"
+          #detalle="ngModel"
+        ></textarea>
+        <div
+          class="alert alert-danger"
+          *ngIf="detalle.invalid && (detalle.dirty || detalle.touched)"
+        >
+          <div *ngIf="detalle.errors.required">
+            Escriba los detalles que ejercio dentro de la empresa
+          </div>
+          <div *ngIf="detalle.errors.minlength">
+            El nombre de los detalles tiene que contener como minimo 10
+            caracteres
+          </div>
+          <div *ngIf="detalle.errors.maxlength">
+            El nombre de los detalles tiene que tener como maximo 512 caracteres
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group">
+        <label>Logo empresa: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="imagen"
+          [(ngModel)]="explaboral.imagen"
+          name="imagen"
+          #imagen="ngModel"
+          placeholder="Ingrese direccion URL de la imagen (Sitio web donde se encuentra almacenado) NO ES OBLIGATORIO"
+        />
+      </div>
+      <br />
+
+      <div style="float: right; display: block">
+        <button class="btn btn-success" [disabled]="!empresaForm.form.valid">
+          Guardar
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="irHome()"
+          style="margin-left: 10px"
+        >
+          Descartar y salir
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+#logos_argprog{
+    list-style-type: none;
+}
+
+.logo_footer{
+    display: inline;
+    float: none;
+    width: 100%;
+}
+
+#logo_produccion, #logo_inti, #logo_cessi{
+    display: inline-block;
+}
+
+#logo_produccion{
+    width: 40%;
+}
+
+#logo_inti{
+    width: 18%;
+    margin-left: 90px;
+    margin-top: 10px;
+}
+
+#logo_cessi{
+    width: 18%;
+    float: right;
+    margin-right: 25px;
+}

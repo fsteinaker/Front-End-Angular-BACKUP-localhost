@@ -1,0 +1,39 @@
+div.card-body{
+    width: 50%;
+}
+
+#img-registro{
+    display: block;
+    margin-left: 33%;
+    margin-right: 33%;
+}
+
+#img-regis{
+    width: 400px;
+    display: block;
+    margin-top: 20px;
+    margin-left: 63%;
+}
+
+#titulo{
+    font-weight: bolder;
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#registro_detalle{
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    margin-left: 20%;
+    width: 700px;
+}
+
+#entendido{
+    font-weight: bold;
+    width: 150px;
+    margin-left: 43%;
+    margin-bottom: 20px;
+    padding: 10px;
+}

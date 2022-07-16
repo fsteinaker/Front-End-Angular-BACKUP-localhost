@@ -1,0 +1,60 @@
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h2 id="registrate" data-text="REGISTRATE">Registrate</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input
+        type="text"
+        id="login"
+        class="fadeIn second"
+        name="login"
+        placeholder="Ingresa tu correo"
+        [(ngModel)]="usuario.email"
+      />
+      <input
+        type="password"
+        id="password"
+        class="fadeIn third"
+        name="login"
+        placeholder="Ingresa tu nueva contraseña"
+        [(ngModel)]="usuario.password"
+      />
+      <input
+        type="submit"
+        style="margin-top: 25px"
+        class="fadeIn fourth"
+        value="REGISTRARSE"
+        (click)="Registrar()"
+      />
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <div class="cuenta-registro">
+        <p>¿Ya estás registrado?</p>
+        <a routerLink="/iniciar-sesion">Hacé click aquí.</a>
+      </div>
+      <a
+        class="underlineHover"
+        href="https://www.argentina.gob.ar/produccion/argentina-programa/segunda-etapa"
+        target="_blank"
+        >Argentina Programa 2022 #YoProgramo</a
+      >
+    </div>
+  </div>
+</div>

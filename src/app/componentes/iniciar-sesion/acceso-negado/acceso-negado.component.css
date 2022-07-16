@@ -1,0 +1,33 @@
+div.card-body {
+    width: 50%;
+  }
+  
+  #cat-error {
+    display: block;
+    margin-left: 33%;
+    margin-right: 33%;
+  }
+  
+  #ups {
+    font-weight: bolder;
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+  }
+  
+  #error_detalle {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    margin-left: 20%;
+    width: 700px;
+  }
+  
+  #entendido {
+    font-weight: bold;
+    width: 150px;
+    margin-left: 45%;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
