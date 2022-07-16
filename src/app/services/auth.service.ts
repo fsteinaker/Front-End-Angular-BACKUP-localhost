@@ -46,8 +46,8 @@ export class AuthService {
         window.alert('Se ha mandado un mail a tu cuenta de correo. Verfifica tu casilla SPAM o correo no deseado');
         this.router.navigateByUrl('/iniciar-sesion');
       })
-      .catch((error) => {
-        window.alert(error);
+      .catch(() => {
+        window.alert('Ingresa una cuenta de correo registrada para restablecer la contraseña');
       });
   }
 
