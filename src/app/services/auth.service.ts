@@ -20,9 +20,12 @@ export class AuthService {
 
   async register(email: string, password: string) {
     try {
-      return await this.afauth.createUserWithEmailAndPassword(email, password);
+      return (
+        (await this.afauth.createUserWithEmailAndPassword(email, password)) &&
+        this.router.navigateByUrl('/registro-exitoso')
+      );
     } catch (err) {
-      console.log('error en registro: ', err);
+      window.alert('Esta cuenta esta registrada');
       return null;
     }
   }
@@ -43,11 +46,15 @@ export class AuthService {
     return this.afauth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Se ha mandado un mail a tu cuenta de correo. Verfifica tu casilla SPAM o correo no deseado');
+        window.alert(
+          'Se ha mandado un mail a tu cuenta de correo. Verfifica tu casilla SPAM o correo no deseado'
+        );
         this.router.navigateByUrl('/iniciar-sesion');
       })
       .catch(() => {
-        window.alert('Ingresa una cuenta de correo registrada para restablecer la contraseña');
+        window.alert(
+          'Ingresa una cuenta de correo registrada para restablecer la contraseña'
+        );
       });
   }
 

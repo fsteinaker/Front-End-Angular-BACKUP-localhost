@@ -17,12 +17,12 @@
     </div>
 
     <!-- Login Form -->
-    <form>
+    <form (ngSubmit)="Registrar()" #registroForm="ngForm">
       <input
         type="text"
         id="login"
         class="fadeIn second"
-        name="login"
+        name="user"
         placeholder="Ingresa tu correo (mínimo 8 caracteres)"
         [(ngModel)]="usuario.email"
         minlength="8"
@@ -31,13 +31,13 @@
         type="password"
         id="password"
         class="fadeIn third"
-        name="login"
+        name="password"
         placeholder="Ingresa tu contraseña (mínimo 8 caracteres)"
         [(ngModel)]="usuario.password"
         minlength="8"
       />
       <input
-        type="submit"
+        type="button" [disabled]="!registroForm.form.valid"
         style="margin-top: 25px"
         class="fadeIn fourth"
         value="REGISTRARSE"

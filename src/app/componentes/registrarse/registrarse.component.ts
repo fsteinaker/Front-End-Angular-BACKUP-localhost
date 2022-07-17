@@ -17,13 +17,12 @@ export class RegistrarseComponent {
 
   Registrar() {
     const { email, password } = this.usuario;
-    this.authService.register(email, password).then((res) => {
-      if (email !== '' && password !== '') {
+    if (email !== '' && password !== '') {
+      this.authService.register(email, password).then((res) => {
         console.log('Se registro: ', res);
-        this.router.navigateByUrl('/registro-exitoso');
-      } else {
-        alert('Complete los campos para registrarse');
-      }
-    });
+      });
+    } else {
+      alert('Complete los campos para registrarse');
+    }
   }
 }
