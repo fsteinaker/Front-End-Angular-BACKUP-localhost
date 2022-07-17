@@ -49,7 +49,7 @@ export class HabilidadesComponent implements OnInit {
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() =>
-            this.router.navigate(['/portfolio'], { fragment: 'habilidad' })
+            this.router.navigate(['/portfolio'])
           );
         this.getdatosHabilidades();
         swal('Habilidad eliminada', 'Se ha borrado con exito', 'success');

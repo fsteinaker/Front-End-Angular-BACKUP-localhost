@@ -16,12 +16,12 @@
     </div>
 
     <!-- Login Form -->
-    <form>
+    <form #inicioForm="ngForm">
       <input
         type="text"
         id="login"
         class="fadeIn second"
-        name="login"
+        name="user"
         placeholder="Ingresa tu correo"
         [(ngModel)]="usuario.email"
         minlength="8"
@@ -30,13 +30,13 @@
         type="password"
         id="password"
         class="fadeIn third"
-        name="login"
+        name="password"
         placeholder="Ingresa tu contraseña"
         [(ngModel)]="usuario.password"
         minlength="8"
       />
       <input
-        type="submit"
+        type="button" [disabled]="!inicioForm.form.valid"
         style="margin-top: 25px"
         class="fadeIn fourth"
         value="Iniciar sesión"

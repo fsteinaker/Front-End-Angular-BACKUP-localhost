@@ -25,7 +25,7 @@ export class AuthService {
         this.router.navigateByUrl('/registro-exitoso')
       );
     } catch (err) {
-      window.alert('Esta cuenta esta registrada');
+      window.alert('Los datos ingresados están registrados o son incorrectos');
       return null;
     }
   }
